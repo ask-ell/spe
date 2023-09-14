@@ -5,6 +5,6 @@ export default class ArticleRepository {
   constructor(private database: Database) {}
 
   save(article: Article): void {
-    this.database.save({ title: article.getTitle() }, 'articles');
+    this.database.save(article, 'articles');
   }
 }
