@@ -1,11 +1,11 @@
-import Admin from './admin';
+import UserFactoryProvider from './user.factory.provider';
 import Article from './article';
 import ArticleJsonFactory from './article.json.factory';
 import ArticleRepository from './article.repository';
-import Contributor from './contributor';
 import Database from './database';
 import { UserType } from './types';
 import User from './user';
+import UserFactory from './user.factory';
 
 export default class Application {
   run(): number {
@@ -16,14 +16,9 @@ export default class Application {
       const userPseudo = 'pierre';
       const userType: UserType = 'admin';
 
-      const user: User = (() => {
-        switch (userType as UserType) {
-          case 'admin':
-            return new Admin(userPseudo);
-          case 'contributor':
-            return new Contributor(userPseudo);
-        }
-      })();
+      const userFactory: UserFactory =
+        UserFactoryProvider.provideFromUserType(userType);
+      const user: User = userFactory.create(userPseudo);
 
       const article = new Article(user, 'Mon premier article');
 
