@@ -1,5 +1,5 @@
-# Blank project with Typescript and Jest pre-installed
-Add a description here.
+# SOLID principles examples
+Examples used inside Youtube tutorials : https://www.youtube.com/watch?v=rEbsyedOrXE&list=PLSrXox7SaH76gb6yotofIzytkWm5oCt3D&index=1
 
 ## Development
 
